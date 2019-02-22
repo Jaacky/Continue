@@ -30,7 +30,6 @@ export default class ContinueScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'green',
     },
     button: {
         backgroundColor: 'white',

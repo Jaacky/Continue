@@ -1,12 +1,28 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 
 export default class Goal extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {i: 0};
+
+        this.increment = () => {
+            this.setState(previousState => {
+                return {i: previousState.i + 1}
+            })
+        }
+    }
+
     render() {
         return (
             <View style={styles.goal}>
                 <View style={styles.title}/>
-                <View style={styles.incrementor} />
+                <TouchableHighlight
+                    onPress={this.increment}
+                    underlayColor="white"
+                    style={styles.incrementor}>
+                    <Text>{this.state.i}</Text>
+                </TouchableHighlight>
             </View>
         );
     }
