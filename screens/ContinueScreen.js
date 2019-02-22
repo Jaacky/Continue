@@ -1,7 +1,7 @@
 import React from 'react';
 import { Alert, StyleSheet, View, ScrollView, Text, Button } from 'react-native';
 
-import Goal from '../components/Goal';
+import GoalList from '../components/GoalList';
 
 export default class ContinueScreen extends React.Component {
     static navigationOptions = {
@@ -22,12 +22,7 @@ export default class ContinueScreen extends React.Component {
                     }}
                     title="Press me!"
                 />
-                <View style={styles.goals}>
-                    <Goal/>
-                    <Goal/>
-                    <Goal/>
-                </View>
-                
+                <GoalList/>
             </ScrollView>
         )
     }
@@ -47,10 +42,5 @@ const styles = StyleSheet.create({
         margin: 20,
         flexDirection: 'row',
         justifyContent: 'space-between'
-    },
-    goals: {
-        flex: 1,
-        flexDirection: 'column',
-        padding: 8,
     },
 });
