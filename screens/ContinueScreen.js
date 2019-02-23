@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, StyleSheet, View, ScrollView, Text, Button } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 
 import GoalList from '../components/GoalList';
 
@@ -10,18 +10,7 @@ export default class ContinueScreen extends React.Component {
 
     render() {
         return (
-            <ScrollView style={styles.container}>
-                <Text>
-                    Hello world from Continue
-                </Text>
-                <Button
-                    style={styles.button}
-                    color="#841584"
-                    onPress={() => {
-                        Alert.alert('You tapped a button!');
-                    }}
-                    title="Press me!"
-                />
+            <ScrollView>
                 <GoalList/>
             </ScrollView>
         )
@@ -29,14 +18,6 @@ export default class ContinueScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-    },
-    button: {
-        backgroundColor: 'white',
-    },
-    buttonContainer: {
-        margin: 20
-    },
     alternativeLayoutButtonContainer: {
         margin: 20,
         flexDirection: 'row',
