@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 
+const wipGoalColor = "powderblue";
+
 export default class Goal extends React.Component {
     constructor(props) {
         super(props);
@@ -23,7 +25,7 @@ export default class Goal extends React.Component {
                 </View>
                 <TouchableHighlight
                     onPress={this.increment}
-                    underlayColor="white"
+                    underlayColor={wipGoalColor}
                     style={styles.incrementor}>
                     <Text>{this.state.i}</Text>
                 </TouchableHighlight>
@@ -40,11 +42,14 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         margin: 8,
         height: 50,
+        paddingHorizontal: 16,
+        backgroundColor: wipGoalColor,
+
     },
     titleContainer: {
         flex: 0.7,
         justifyContent: 'center',
-        backgroundColor: 'powderblue',
+        
     },
     title: {
         textTransform: 'uppercase',
@@ -52,7 +57,6 @@ const styles = StyleSheet.create({
     incrementor: {
         flex: 0.3,
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'skyblue',
+        alignItems: 'flex-end',
     }
 });
