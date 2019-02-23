@@ -15,8 +15,14 @@ export default class Goal extends React.Component {
         }
     }
 
+    getProgress() {
+        let progress = this.state.i / this.props.dailyGoal
+        if (progress > 1) progress = 1
+        return progress * 100
+    }
+
     render() {
-        progressPercent = 100 - (this.state.i / this.props.dailyGoal * 100) + "%"
+        progressPercent = 100 - this.getProgress() + "%"
         return (
             <View style={styles.goal}>
                 <View style={{right: progressPercent,...styles.progress}}/>
@@ -31,7 +37,7 @@ export default class Goal extends React.Component {
                     </View>
                     <TouchableHighlight
                         onPress={this.increment}
-                        underlayColor={wipGoalColor}
+                        underlayColor='transparent'
                         style={styles.incrementor}>
                         <Text style={styles.count}>{this.state.i}</Text>
                     </TouchableHighlight>
