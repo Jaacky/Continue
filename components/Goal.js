@@ -16,7 +16,11 @@ export default class Goal extends React.Component {
     render() {
         return (
             <View style={styles.goal}>
-                <View style={styles.title}/>
+                <View style={styles.titleContainer}>
+                    <Text style={styles.title}>
+                        {this.props.title}
+                    </Text>
+                </View>
                 <TouchableHighlight
                     onPress={this.increment}
                     underlayColor="white"
@@ -37,12 +41,18 @@ const styles = StyleSheet.create({
         margin: 8,
         height: 50,
     },
-    title: {
+    titleContainer: {
         flex: 0.7,
+        justifyContent: 'center',
         backgroundColor: 'powderblue',
+    },
+    title: {
+        textTransform: 'uppercase',
     },
     incrementor: {
         flex: 0.3,
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: 'skyblue',
     }
 });

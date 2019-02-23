@@ -7,10 +7,10 @@ export default class GoalList extends React.Component {
     render() {
         return (
             <View style={styles.goalList}>
-                <Goal/>
-                <Goal/>
-                <Goal/>
-                <Goal/>
+                <Goal title="goal 1"/>
+                <Goal title="goal 2"/>
+                <Goal title="goal 3"/>
+                <Goal title="goal 4"/>
             </View>
         );
     }
