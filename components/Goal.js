@@ -6,7 +6,7 @@ const wipGoalColor = "powderblue";
 export default class Goal extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {i: 0};
+        this.state = { i: 0 };
 
         this.increment = () => {
             this.setState(previousState => {
@@ -16,22 +16,26 @@ export default class Goal extends React.Component {
     }
 
     render() {
+        progressPercent = 100 - (this.state.i / this.props.dailyGoal * 100) + "%"
         return (
             <View style={styles.goal}>
-                <View style={styles.titleContainer}>
-                    <Text style={styles.title}>
-                        {this.props.title}
-                    </Text>
-                    <Text style={styles.subtitle}>
-                        Today: {this.state.i}/{this.props.dailyGoal}
-                    </Text>
+                <View style={{right: progressPercent,...styles.progress}}/>
+                <View style={styles.detailsContainer}>
+                    <View style={styles.titleContainer}>
+                        <Text style={styles.title}>
+                            {this.props.title}
+                        </Text>
+                        <Text style={styles.subtitle}>
+                            Today: {this.state.i}/{this.props.dailyGoal}
+                        </Text>
+                    </View>
+                    <TouchableHighlight
+                        onPress={this.increment}
+                        underlayColor={wipGoalColor}
+                        style={styles.incrementor}>
+                        <Text style={styles.count}>{this.state.i}</Text>
+                    </TouchableHighlight>
                 </View>
-                <TouchableHighlight
-                    onPress={this.increment}
-                    underlayColor={wipGoalColor}
-                    style={styles.incrementor}>
-                    <Text>{this.state.i}</Text>
-                </TouchableHighlight>
             </View>
         );
     }
@@ -40,14 +44,24 @@ export default class Goal extends React.Component {
 const styles = StyleSheet.create({
     goal: {
         flex: 1,
-        flexDirection: 'row',
         borderColor: 'black',
         borderWidth: 2,
         margin: 8,
         height: 50,
-        paddingHorizontal: 16,
         backgroundColor: wipGoalColor,
 
+    },
+    progress: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        backgroundColor: "steelblue",
+    },
+    detailsContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        paddingHorizontal: 16,
     },
     titleContainer: {
         flex: 0.7,
@@ -65,5 +79,8 @@ const styles = StyleSheet.create({
         flex: 0.3,
         justifyContent: 'center',
         alignItems: 'flex-end',
+    },
+    count: {
+        fontSize: 18,
     }
 });
