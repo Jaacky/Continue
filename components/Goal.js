@@ -22,6 +22,9 @@ export default class Goal extends React.Component {
                     <Text style={styles.title}>
                         {this.props.title}
                     </Text>
+                    <Text style={styles.subtitle}>
+                        Today: {this.state.i}/{this.props.dailyGoal}
+                    </Text>
                 </View>
                 <TouchableHighlight
                     onPress={this.increment}
@@ -53,6 +56,10 @@ const styles = StyleSheet.create({
     },
     title: {
         textTransform: 'uppercase',
+    },
+    subtitle: {
+        textTransform: 'uppercase',
+        fontSize: 10,
     },
     incrementor: {
         flex: 0.3,
