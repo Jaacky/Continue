@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import GoalList from '../components/GoalList';
+import AddGoalButton from '../components/AddGoalButton';
 
 export default class ContinueScreen extends React.Component {
     static navigationOptions = {
@@ -10,14 +11,18 @@ export default class ContinueScreen extends React.Component {
 
     render() {
         return (
-            <ScrollView>
+            <View style={styles.container}>
                 <GoalList/>
-            </ScrollView>
+                <AddGoalButton/>
+            </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
     alternativeLayoutButtonContainer: {
         margin: 20,
         flexDirection: 'row',

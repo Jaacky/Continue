@@ -49,7 +49,7 @@ export default class Goal extends React.Component {
 
 const styles = StyleSheet.create({
     goal: {
-        flex: 1,
+        // flex: 1,
         borderColor: 'black',
         borderWidth: 2,
         margin: 8,
